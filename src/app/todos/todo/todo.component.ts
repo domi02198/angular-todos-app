@@ -34,7 +34,7 @@ import { TodoResponse } from '../../backend';
           </div>
         </h3>
         @if (todo.description) {
-          <div style="border: 0px black solid; padding: 5px">
+          <div style="border: 0 black solid; padding: 5px">
             {{ todo.description }}
           </div>
         } @else {
