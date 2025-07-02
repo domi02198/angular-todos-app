@@ -1,17 +1,17 @@
 name: Automated review
- 
+
 on: [push]
- 
-jobs: 
+
+jobs:
   quality-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
- 
+
       - name: npm updates
         run: npm i
- 
+
 #      - name: Run prettier check
 #        run: npm run check
   build-container:
@@ -19,7 +19,7 @@ jobs:
    runs-on: ubuntu-latest
    env:
     TAG_DYNAMIC: ${{github.ref_name}}-${{ github.run_id }}
-    IMAGE_NAME :  angular-todos-app
+    IMAGE_NAME :  angular-todos-app/angular_todosapp
    steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -34,8 +34,8 @@ jobs:
       with:
        username: ${{ secrets.DOCKER_HUB_USERNAME}}
        password: ${{ secrets.DOCKER_HUB_PASSWORD}}
-      
+
     - name: Push image to docker hub
-      run: | 
+      run: |
            docker push $IMAGE_NAME:$TAG_DYNAMIC
            docker push $IMAGE_NAME:latest
