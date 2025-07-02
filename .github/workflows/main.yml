@@ -12,8 +12,8 @@ jobs:
       - name: npm updates
         run: npm i
 
-        - name: Run prettier check
-          run: npm run check
+      - name: Run prettier check
+        run: npm run check
   build-container:
     needs: quality-check
     runs-on: ubuntu-latest
