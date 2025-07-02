@@ -19,14 +19,16 @@ jobs:
    runs-on: ubuntu-latest
    env:
     TAG_DYNAMIC: ${{github.ref_name}}-${{ github.run_id }}
+    IMAGE_NAME :  angular-todos-app
    steps:
     - name: Checkout code
       uses: actions/checkout@v4
     - name: Build docker image
       run: |
        docker build . \
-       --file Dockerfile --tag angular-todos-app:$TAG_DYNAMIC \
-       --tag angular-todos-app:Latest
-
-      
-      #uses: docker/build-push-action@v6.18.0
+       --file Dockerfile --tag $IMAGE_NAME:$TAG_DYNAMIC \
+       --tag $IMAGE_NAME:Latest
+    - name: Push image to docker hub
+      run: | 
+           docker push $IMAGE_NAME:$TAG_DYNAMIC
+           docker push $IMAGE_NAME:latest
