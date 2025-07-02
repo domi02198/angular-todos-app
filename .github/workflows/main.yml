@@ -10,7 +10,6 @@ jobs:
         uses: actions/checkout@v4
       - name : install
         run: npm i
-
       - name: Run prettier check
         run: npm run check
         
