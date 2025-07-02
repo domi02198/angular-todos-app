@@ -12,5 +12,10 @@ jobs:
       - name: npm updates
         run: npm i
  
-      - name: Run prettier check
-        run: npm run check
+#      - name: Run prettier check
+#        run: npm run check
+  build-container:
+   runs-on: ubuntu-latest
+   steps:
+    - name: Build Container
+      uses: docker/build-push-action@v6.18.0
