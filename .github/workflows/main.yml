@@ -9,8 +9,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         
-      - name : install
-        run: npm i
+      - name: install
+        run: npm install
         
       - name: Run prettier check
         run: npm run check
