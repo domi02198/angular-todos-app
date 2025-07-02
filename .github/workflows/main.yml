@@ -27,7 +27,7 @@ jobs:
       run: |
        docker build . \
        --file Dockerfile --tag $IMAGE_NAME:$TAG_DYNAMIC \
-       --tag $IMAGE_NAME:Latest
+       --tag $IMAGE_NAME:latest
 
     - name: Login to dockerhub
       uses: docker/login-action@v3
