@@ -28,6 +28,13 @@ jobs:
        docker build . \
        --file Dockerfile --tag $IMAGE_NAME:$TAG_DYNAMIC \
        --tag $IMAGE_NAME:Latest
+
+    - name: Login to dockerhub
+      uses: docker/login-action@v3
+      with:
+       username: ${{ secrets.DOCKER_HUB_USERNAME}}
+       password: ${{ secrets.DOCKER_HUB_PASSWORD}}
+      
     - name: Push image to docker hub
       run: | 
            docker push $IMAGE_NAME:$TAG_DYNAMIC
